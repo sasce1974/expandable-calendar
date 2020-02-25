@@ -1,0 +1,82 @@
+ <?php
+/**
+ * Created by Aleksandar Ardjanliev.
+ * Date: 24/11/2019
+ * Time: 12:21 PM
+ * Configuration file for website, determine whether working on local or real server,
+ * Determine location of files and URL of the site
+ * Error management.
+ *
+ * Please define the constants bellow according your development
+ * and production server/database settings
+ *
+ * Erase ".empty" to change the name of this file to: "config.inc.php"
+ */
+
+# **** SETTINGS **** #
+
+//Errors will be emailed to the email bellow:
+$contact_email = "your@email.com";
+
+//Determine local or real server:
+$host = substr($_SERVER['HTTP_HOST'], 0, 5);
+if(in_array($host, array('127.0', '192.1', 'local'))){
+    $local = true;
+    $debug = true;
+}else{
+    $local = false;
+}
+
+//Determine location of files and URL in site
+if($local){
+    define('BASE_URI', "path\\to\\your\\folder");
+    define('BASE_URL', "http://example.test");
+    define ("DBHOST", "localhost");
+    define ("DBUSER", "user");
+    define ("DBPASS", "password");
+    define ("DB", "database_name");
+
+    ini_set('display_errors', 1);
+}else{
+
+    define('BASE_URI', "path\\to\\your\\folder\\on\\production_server");
+    define('BASE_URL', "http://www.yourdomain.com");
+    define ("DBHOST", "host.name.com");
+    define ("DBUSER", "user");
+    define ("DBPASS", "password");
+    define ("DB", "database_name");
+
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 1);
+}
+
+#**** Error management ****#
+
+if(!isset($debug)) $debug = false;
+
+
+function my_error_handler($e_number, $e_message, $e_file, $e_line, $e_vars){
+    global $local, $contact_email;
+    $_SESSION['error'] = array();
+    //	Build	the	error	message:
+    $message = "An error occurred in file '$e_file' on line $e_line: $e_message<br>";
+
+    if ($local){	//	Show	the	error.
+        echo '<div class="error" style="padding: 1em;margin: 1em">' . $message . '</div>';
+        $_SESSION['error'][] = $message;
+        debug_print_backtrace();
+    }else{
+        //	Log	the	error:
+        error_log ($message, 1, $contact_email);	//	Send email.
+
+        //	Only print an error message if the error isn't a notice or strict.
+        if(($e_number != E_NOTICE) && ($e_number < 2048)) {
+            echo '<div class="error">A system error	occurred. We apologize for the 
+            inconvenience.</div>';
+        }
+    }//	End	of	$local	IF.
+
+}//	End	of my_error_handler() definition.
+
+//	Use	my	error	handler:
+set_error_handler('my_error_handler');

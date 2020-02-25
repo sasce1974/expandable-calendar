@@ -1,0 +1,9 @@
+# ignore files or folders from being committed
+
+.idea
+config.inc.php
+function.old.php
+index1.html
+index2.html
+index_old.html
+test.php

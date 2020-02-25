@@ -1,0 +1,96 @@
+
+body{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #eee;
+}
+
+#output{
+    background-color: #fff;
+}
+
+/* .dat is used in index1 and index2 */
+.dat{ width: 150px;
+    height: 100px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid blue;
+    background-color: cornflowerblue;
+}
+
+.planner_field{
+    /*min-width:100px;*/
+    width:auto !important;
+    height: 11vh;
+    vertical-align: top;
+}
+
+.planner_field:hover{
+    /*cursor: pointer;*/
+    color: white;
+}
+.click-field{
+    text-align: center;
+}
+.click-field:hover{
+    cursor: pointer;
+}
+.click-field .fa{
+    position: absolute;
+    z-index: 15;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.top-right{
+    position: relative;
+    top:-22px;
+    right: -88%;
+    z-index: 50;
+}
+
+#message{
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #eee;
+    border-radius: 10px;
+    display: none;
+    padding: 1em;
+    z-index: 1000;
+    box-shadow: 5px 5px 8px #333;
+}
+
+.bottom-right-corner{
+    text-align: right;
+    position: relative;
+    bottom: 15px;
+    z-index: 120;
+}
+nav{
+    min-width: 280px;
+}
+nav .btn{
+    min-width: 3em;
+}
+
+#user-login{
+    position: absolute;right:5px;
+}
+#user-login:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 620px) {
+    #user-login{
+        position: unset;
+        margin: 0.5em;
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+    .click-field{
+        text-align: left;
+    }
+}

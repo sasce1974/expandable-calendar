@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>PLANNER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/planner.css?x=2">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body onload="showPlan('last_one')">
+
+<nav class="navbar bg-dark text-light p-2 justify-content-center">
+    <span id="user-login"><a href="login/">Log In</a></span>
+    <button class="btn btn-light mx-2 plan-nav" value="back">
+        <i class="fa fa-caret-left my-0"></i>
+    </button>
+    <select class="form-control mx-2 plan-sel" style="width: 6em">
+        <option>Select</option>
+        <option value="today">Day</option>
+        <option value="home">Week</option>
+        <option value="month">Month</option>
+    </select>
+    <button class="btn btn-light mx-2 plan-nav" value="next">
+        <i class="fa fa-caret-right my-0"></i>
+    </button>
+
+
+    <!--<form class="form-inline ml-4">
+        <input class="form-control mx-2" type="date" id="start-date">
+        <input class="form-control mx-2" type="date" id="end-date">
+    </form>
+    <button class="btn btn-light mx-2 plan-nav" value="byPeriod">Period</button>-->
+</nav>
+<div id="error_message"></div>
+<div id="info"></div>
+<div id="topInfo"></div>
+<div class="p-0" id="output"></div>
+<div id="message"></div>
+
+<script src="js/checked_days_planner2.js?x=2"></script>
+<script src="js/plannerFieldDaysStayed.js"></script>
+</body>
+</html>

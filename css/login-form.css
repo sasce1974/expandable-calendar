@@ -1,0 +1,65 @@
+html {
+    font-size: 1.4rem;
+}
+
+
+/*LOGIN/REGISTER PAGE*/
+.login-wrap{
+    width: 50%;
+    min-width: 400px;
+    max-width: 700px;
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.input-group-text{
+    width: 7em;
+    font-size: small;
+    padding: 0.3rem;
+}
+
+.errorClass {
+    background-color: #CC6666;
+    }
+#errorDiv {
+    color: red;
+    float: left;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline;
+    font-size: x-large;
+    font-weight: bold;
+    }
+.errorFeedback {
+    display: none;
+    }
+.errorSpan{
+    color: red;
+    background-color: white;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+@media (max-width: 767.98px){
+    .login-wrap{
+        width: 100%;
+        min-width: 300px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    html{
+        font-size: 1rem;
+    }
+    .input-group-text{
+        width: 6em;
+        text-align: center;
+    }
+}
